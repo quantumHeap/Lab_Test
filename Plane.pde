@@ -1,11 +1,10 @@
 class Plane extends GameObject
 {
-  
+  float radius = 30;;
    Plane(float x, float y)
   {
    super(x,y);
   }
-  
   color PlaneOrange = color(232,182,56);
   
   void Update()
@@ -21,7 +20,6 @@ class Plane extends GameObject
     pos.x = 0; 
    }
   }
-
   void Render()
   {
     fill(PlaneOrange);
@@ -33,4 +31,18 @@ class Plane extends GameObject
     triangle(0, -halfW, halfW, halfW, - halfW, halfW);
     popMatrix();
   }
+  public boolean DropTheItem(ArrayList<Plane> planes)
+ {
+   for(Plane plane : planes)
+   {
+      PVector DropPosition = new PVector(width/2,height/4);
+      PVector dist = PVector.sub(DropPosition, plane.pos);
+      if(dist.mag() < plane.radius)
+      {
+        Drops.add(new Drop_Item(pos.x,pos.y));
+        return true;
+      }
+   }
+   return false;
+ } 
 }

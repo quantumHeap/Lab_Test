@@ -4,11 +4,14 @@ int Score;
 ArrayList <Player> players;
 int PlayersAmount;
 ArrayList<Plane> planes;
+ArrayList<Drop_Item> Drops;
 int PlaneAmount;
 ArrayList<Sky> sky;
 int SkyAmount = 1;
 ArrayList<Ground> ground;
 int GroundAmount  = 1;
+ArrayList <cloud> clouds;
+int cloudsAmount = 5;
 
 void setup()
 {
@@ -20,7 +23,9 @@ void setup()
  players = new ArrayList<Player>();
  planes = new ArrayList<Plane>();
  sky = new ArrayList<Sky>();
+ Drops = new ArrayList<Drop_Item>();
  ground = new ArrayList<Ground>();
+ clouds = new ArrayList<cloud>();
    for(int i = 0; i < PlayersAmount; i++)
   {
     players.add(new Player(width/2,height/2));
@@ -37,6 +42,10 @@ void setup()
  {
     ground.add(new Ground(width,height/2));
  } 
+ for(int i = 0; i < cloudsAmount; i ++)
+ {
+   clouds.add(new cloud(random(width,0), random(0,height/2.5))); 
+ }
 }
 void keyPressed()
 {
@@ -61,7 +70,18 @@ void draw()
    gr.Render();
    gr.Update();
  }
- 
+ for(int i = Drops.size() -1; i>0; i++)
+{
+   Drop_Item drop = Drops.get(i);
+   drop.Update();
+   drop.Render();
+} 
+for(int i= 0; i < clouds.size(); i++)
+{
+ cloud cl = clouds.get(i);
+ cl.Update();
+ cl.Render();
+}
  for(int i = 0; i < planes.size(); i++)
  {
   Plane plane = planes.get(i);
