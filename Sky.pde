@@ -12,11 +12,11 @@ color SkyBlue = color(66,164,242);
   {
     noStroke();
     fill(SkyBlue);
-//    pushMatrix();
-    translate(pos.x,pos.y);
+    pushMatrix();
+  //  translate(pos.x,pos.y);
     rectMode(CENTER);
-    rect(0, -halfW, halfW, halfW);
+    rect(width/2, height/4 , width, height/2);
     
-//    popMatrix();
+    popMatrix();
   }
 }

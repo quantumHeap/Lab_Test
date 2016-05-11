@@ -31,15 +31,12 @@ void setup()
   }
   for(int i = 0; i < SkyAmount; i++)
   {
-    sky.add(new sky(width,height));  
+    sky.add(new Sky(width,height));  
   }
   for(int i = 0; i < GroundAmount; i++)
  {
-  ground.add(new Ground(width,height/2));
-  
+    ground.add(new Ground(width,height/2));
  } 
-  
-  
 }
 void keyPressed()
 {
@@ -52,18 +49,30 @@ void keyReleased()
 void draw()
 {
  background(125);
- 
- for(int i = 0; i < players.size(); i++)
+ for(int i = 0; i <sky.size(); i++)
  {
-  Player p = players.get(i);
-  p.Update();
-  p.Render(); 
+   Sky s = sky.get(i);
+   s.Render();
+   s.Update();
  }
+ for(int i = 0; i < ground.size(); i ++)
+ {
+   Ground gr = ground.get(i);
+   gr.Render();
+   gr.Update();
+ }
+ 
  for(int i = 0; i < planes.size(); i++)
  {
   Plane plane = planes.get(i);
   plane.Update();
   plane.Render(); 
+ }
+ for(int i = 0; i < players.size(); i++)
+ {
+  Player p = players.get(i);
+  p.Update();
+  p.Render(); 
  }
 }
 

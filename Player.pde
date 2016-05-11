@@ -4,7 +4,7 @@ class Player extends GameObject
    Player(float x, float y)
   {
    super(x,y);
-   
+   speed = 100.0f;
   }
   int lives = 3;
   color PlayerPink = color(238,110,252);
@@ -35,6 +35,22 @@ class Player extends GameObject
     if(keys[RIGHT])
     {
      pos.x++; 
+    }
+    if(pos.x <= 0)
+    {
+      pos.x = 0;
+    }
+    if(pos.x >= width - halfW)
+    {
+     pos.x = width; 
+    }
+    if(pos.y <= height/2 - halfW)
+    {
+     pos.y = height/2 - halfW; 
+    }
+    if(pos.y >= height - halfW)
+    {
+     pos.y = height - halfW; 
     }
   }
   void Render()
