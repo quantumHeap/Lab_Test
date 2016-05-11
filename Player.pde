@@ -14,9 +14,9 @@ class Player extends GameObject
     forward.x = sin(theta);
     forward.y = -cos(theta);
     velocity.x = forward.x;
-   velocity.y = forward.y;
-   velocity.mult(speed);
-   InputMovement();
+    velocity.y = forward.y;
+    velocity.mult(speed);
+    InputMovement();
   }
   void InputMovement()
   {
@@ -39,7 +39,7 @@ class Player extends GameObject
   }
   void Render()
   {
-    fill(255);
+    fill(PlayerPink);
     stroke(255);
     pushMatrix();
     translate(pos.x,pos.y);
