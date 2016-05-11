@@ -1,9 +1,10 @@
 class GameObject
 {
-  PVector Pos;
+  PVector pos;
   PVector forward;
   PVector velocity;
   float Width;
+  float halfW;
   float theta;
   float speed;
   color c;
@@ -14,6 +15,7 @@ class GameObject
  forward = new PVector(0,-1);
  velocity = new PVector(0,0);
  Width = 50.0f;
+ halfW = Width/2;
 } 
   public void Update()
   {
